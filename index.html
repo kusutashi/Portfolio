@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Photography Services | Capturing moments that last forever">
+    <meta name="description" content="Professional Photography Services | Capturing moments that last forever">
     <meta name="keywords" content="photography, portrait, wedding, event, professional photographer">
     <title>Professional Photography</title>
     
@@ -494,7 +494,7 @@
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav-container">
-            <a href="#" class="logo">PixelCraft Studio</a>
+            <a href="#" class="logo">Professional Photography</a>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#home"><i class="fas fa-home"></i> Home</a>
@@ -654,12 +654,12 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
             </div>
-            <p>&copy; 2025 PixelCraft Studio. All rights reserved. | 
+            <p>&copy; 2025 Professional Photography. All rights reserved. | 
                <a href="#" style="color: #4ecdc4;">Privacy Policy</a> | 
                <a href="#" style="color: #4ecdc4;">Terms of Service</a>
             </p>
             <p style="margin-top: 1rem; opacity: 0.7;">
-                📍 Dnipro, Ukraine | 📞 +380 XX XXX XXXX | ✉️ info@pixelcraft.studio
+                📍 Kharkiv, Ukraine | 📞 +380 XX XXX XXXX | ✉️ info@profphoto.studio
             </p>
             
             <!-- LiveInternet Counter Placeholder -->
@@ -742,39 +742,29 @@
                 backToTop.style.display = 'none';
             }
         });
-
-        // Modal functions
         function openModal() {
             document.getElementById('registrationModal').style.display = 'block';
         }
-
         function closeModal() {
             document.getElementById('registrationModal').style.display = 'none';
         }
-
-        // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('registrationModal');
             if (event.target === modal) {
                 modal.style.display = 'none';
             }
         }
-
-        // Form submission handlers
         function handleSubmit(event) {
             event.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
             event.target.reset();
         }
-
         function handleRegistration(event) {
             event.preventDefault();
             alert('Thank you for subscribing to our newsletter!');
             closeModal();
             event.target.reset();
         }
-
-        // Gallery hover effects
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 this.style.transform = 'scale(1.05) rotate(1deg)';
@@ -784,8 +774,6 @@
                 this.style.transform = 'scale(1) rotate(0deg)';
             });
         });
-
-        // Counter animation on scroll
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number');
             const observer = new IntersectionObserver((entries) => {
@@ -810,29 +798,20 @@
             
             counters.forEach(counter => observer.observe(counter));
         }
-
-        // Initialize counter animation
         document.addEventListener('DOMContentLoaded', animateCounters);
-
-        // Add some interactive elements
         document.querySelectorAll('.service-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
                 this.style.color = 'white';
                 this.querySelector('.service-icon').style.color = 'white';
             });
-            
             card.addEventListener('mouseleave', function() {
                 this.style.background = 'white';
                 this.style.color = '#333';
             });
         });
     </script>
-
-    <!-- Google Analytics Placeholder -->
     <script>
-        // Google Analytics code will be added here
-        // gtag('config', 'GA_MEASUREMENT_ID');
     </script>
 </body>
 </html>
