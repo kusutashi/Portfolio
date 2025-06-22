@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PixelCraft Studio - Professional Photography Services | Capturing moments that last forever">
+    <meta name="keywords" content="photography, portrait, wedding, event, professional photographer">
+    <title>PixelCraft Studio - Professional Photography</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header and Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo::before {
+            content: '📸';
+            margin-right: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-item a:hover {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23bg)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+        }
+
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Gallery Preview */
+        .gallery-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item::before {
+            content: '🎨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Statistics */
+        .stats {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-preview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-preview {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">PixelCraft Studio</a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html"><i class="fas fa-camera"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html"><i class="fas fa-user"></i> About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" onclick="openModal()"><i class="fas fa-user-plus"></i> Join</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Capturing Life's Precious Moments</h1>
+            <p>Professional photography services that turn your memories into timeless art. 
+               From weddings to portraits, we create visual stories that last forever.</p>
+            <a href="#services" class="cta-button">
+                <i class="fas fa-camera"></i> Explore Our Work
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Wedding Photography</h3>
+                    <p>Capture every magical moment of your special day with our expert wedding photography services. From intimate ceremonies to grand celebrations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Portrait Sessions</h3>
+                    <p>Professional portrait photography for individuals, families, and corporate needs. Bringing out the best in every shot.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Event Coverage</h3>
+                    <p>Complete event documentation for corporate functions, parties, and special occasions. Professional coverage from start to finish.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview -->
+        <section class="section">
+            <h2>Featured Work</h2>
+            <div class="gallery-preview">
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Wedding Collection</h4>
+                        <p>Romantic moments captured</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Portrait Series</h4>
+                        <p>Expressive portraits</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Event Highlights</h4>
+                        <p>Corporate & social events</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <h4>Nature & Landscape</h4>
+                        <p>Breathtaking scenery</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div>Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1200+</div>
+                    <div>Photos Taken</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div>Events Covered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div>Years Experience</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <h2>Get In Touch</h2>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service"><i class="fas fa-camera"></i> Service Needed</label>
+                    <select id="service" name="service" style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px;">
+                        <option>Wedding Photography</option>
+                        <option>Portrait Session</option>
+                        <option>Event Coverage</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 PixelCraft Studio. All rights reserved. | 
+               <a href="#" style="color: #4ecdc4;">Privacy Policy</a> | 
+               <a href="#" style="color: #4ecdc4;">Terms of Service</a>
+            </p>
+            <p style="margin-top: 1rem; opacity: 0.7;">
+                📍 Dnipro, Ukraine | 📞 +380 XX XXX XXXX | ✉️ info@pixelcraft.studio
+            </p>
+            
+            <!-- LiveInternet Counter Placeholder -->
+            <div style="margin-top: 1rem; opacity: 0.5;">
+                <!-- LiveInternet counter will be added here -->
+                <script>document.write('<img src="//counter.yadro.ru/hit?r' + escape(document.referrer) + ((typeof(screen)=='undefined')?'':';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ';u' + escape(document.URL) + ';' + Math.random() + '" alt="" title="" border="0">');</script>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="margin-bottom: 1rem; color: #333;">Join Our Newsletter</h2>
+            <form onsubmit="handleRegistration(event)">
+                <div class="form-group">
+                    <label for="regName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone"><i class="fas fa-phone"></i> Phone (Optional)</label>
+                    <input type="tel" id="regPhone">
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-user-plus"></i> Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('registrationModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('registrationModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('registrationModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Form submission handlers
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        function handleRegistration(event) {
+            event.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            closeModal();
+            event.target.reset();
+        }
+
+        // Gallery hover effects
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Counter animation on scroll
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.textContent.replace(/[^0-9]/g, ''));
+                        let current = 0;
+                        const increment = target / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '');
+                        }, 30);
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Initialize counter animation
+        document.addEventListener('DOMContentLoaded', animateCounters);
+
+        // Add some interactive elements
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+                this.style.color = 'white';
+                this.querySelector('.service-icon').style.color = 'white';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.background = 'white';
+                this.style.color = '#333';
+            });
+        });
+    </script>
+
+    <!-- Google Analytics Placeholder -->
+    <script>
+        // Google Analytics code will be added here
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>
